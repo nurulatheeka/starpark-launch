@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Starpark_AI Launch</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #05070d;
+            color: white;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .box {
+            width: 85%;
+            max-width: 420px;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            opacity: 0.7;
+            line-height: 1.5;
+        }
+
+        .loader {
+            width: 42px;
+            height: 42px;
+
+            border: 4px solid rgba(255,255,255,0.15);
+            border-top: 4px solid white;
+            border-radius: 50%;
+
+            margin: 30px auto;
+
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>FUTURA MERDEKA</h1>
+
+        <p>Connecting to Starpark_AI...</p>
+
+        <div class="loader"></div>
+
+        <p id="fallback" style="display:none;">
+            Connection is taking longer than expected.<br><br>
+            <a id="manualLink" href="#">Tap here to continue</a>
+        </p>
+
+    </div>
+
+
+    <script>
+
+        // ONLY CHANGE THIS URL WHEN CLOUDFLARE TUNNEL CHANGES
+        const STARparkURL =
+            "https://memory-reception-researcher-african.trycloudflare.com/launch";
+
+
+        document.getElementById("manualLink").href = STARparkURL;
+
+
+        setTimeout(() => {
+            window.location.replace(STARparkURL);
+        }, 800);
+
+
+        setTimeout(() => {
+            document.getElementById("fallback").style.display = "block";
+        }, 5000);
+
+    </script>
+
+</body>
+</html>
